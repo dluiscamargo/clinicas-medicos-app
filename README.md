@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aplicação de Agendamento de Consultas
 
-## Getting Started
+Esta é uma aplicação web desenvolvida para a busca e agendamento de consultas em clínicas e com médicos. O projeto foi construído utilizando tecnologias modernas para criar uma interface de usuário rica, responsiva e interativa.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js:** Um framework React para produção que oferece renderização do lado do servidor, geração de sites estáticos, e muito mais.
+- **React:** Uma biblioteca JavaScript para construir interfaces de usuário.
+- **TypeScript:** Um superset de JavaScript que adiciona tipagem estática opcional ao código, aumentando a robustez e a manutenibilidade.
+- **Tailwind CSS:** Um framework CSS "utility-first" para criar designs personalizados de forma rápida e eficiente diretamente no markup.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades Implementadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+A aplicação é uma SPA (Single Page Application) que centraliza todas as funcionalidades em uma única interface, proporcionando uma experiência de usuário fluida.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Visualização e Filtragem
+- **Abas de Navegação:** Alterne facilmente entre a listagem de **Médicos** e **Clínicas**.
+- **Pesquisa Dinâmica:** Um campo de busca permite filtrar médicos e clínicas por nome ou especialidade em tempo real.
+- **Filtro por Especialidade:** Refine a busca de médicos e clínicas selecionando uma especialidade específica em uma lista suspensa.
 
-## Learn More
+### 2. Layout e Carregamento de Dados
+- **Layout Flexível:** Alterne entre visualização em **Lista** ou em **Grade** para melhor se adequar à sua preferência.
+- **Modos de Carregamento:** Escolha entre **Paginação** clássica ou **Scroll Infinito** para carregar mais resultados.
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Interatividade e Agendamento
+- **Detalhes do Médico:** Ao clicar em "Ver Detalhes" (na listagem de médicos) ou diretamente em um médico (na listagem de clínicas), um modal é aberto com todas as informações do profissional: nome completo, especialidade, telefone e endereço.
+- **Agendamento de Consulta Interativo:**
+    - Ao clicar em "Agendar Consulta", um modal de agendamento é exibido.
+    - **Seleção de Data:** Escolha um dos próximos 7 dias disponíveis.
+    - **Grade de Horários:** Selecione um horário disponível em uma grade interativa (das 9:00 às 17:30).
+    - **Validação de Horário:** O sistema automaticamente desabilita horários que já passaram no dia atual, prevenindo agendamentos no passado.
+    - **Confirmação:** Após a confirmação, uma mensagem de sucesso é exibida e o agendamento é concluído.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Como Executar o Projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Para executar o projeto em seu ambiente de desenvolvimento, siga os passos abaixo:
 
-## Deploy on Vercel
+1. **Clone o repositório:**
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+4. Abra [http://localhost:3000](http://localhost:3000) em seu navegador para ver a aplicação em funcionamento.
