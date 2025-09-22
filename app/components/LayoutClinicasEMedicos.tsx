@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 // Componentes UI simples com Tailwind
 export function Button({ children, variant = "default", size = "md", ...props }: any) {
@@ -77,6 +78,7 @@ const clinicas = [
 const especialidades = [...new Set(medicos.map(m => m.especialidade))];
 
 export default function LayoutClinicasEMedicos() {
+  const router = useRouter();
   const [filtro, setFiltro] = useState("");
   const [especialidade, setEspecialidade] = useState("");
   const [tab, setTab] = useState("medicos");
@@ -95,12 +97,12 @@ export default function LayoutClinicasEMedicos() {
 
   const handleScheduleAppointment = () => {
     if (schedulingFor && selectedDate && selectedTime) {
-      setConfirmationMessage(`Consulta agendada com ${schedulingFor.nome} em ${selectedDate.toLocaleDateString('pt-BR')} às ${selectedTime}.`);
-      setTimeout(() => {
-        setSchedulingFor(null);
-        setConfirmationMessage("");
-        setSelectedTime(null);
-      }, 3000);
+      const query = new URLSearchParams({
+        nome: schedulingFor.nome,
+        data: selectedDate.toLocaleDateString('pt-BR'),
+        hora: selectedTime,
+      }).toString();
+      router.push(`/pagamento?${query}`);
     }
   };
 
